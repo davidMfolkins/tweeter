@@ -1,0 +1,16 @@
+nav {
+  height: 120px;
+  width: 100vw;
+  background-color:#4056A1;
+  padding: 1.5em;
+  color: #FFFFFF;
+}
+
+.logo {
+  font-family: 'Bungee', cursive, sans-serif;
+}
+
+.newTweet {
+  display: flex;
+  justify-content: flex-end;
+}
