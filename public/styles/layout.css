@@ -22,7 +22,6 @@ body {
 }
 
 .container {
-  border: 3px black solid;
   width: 90vw;
   display: block;
   margin-left: auto;
