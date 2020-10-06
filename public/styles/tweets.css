@@ -8,26 +8,25 @@
   box-shadow: 10px 10px #c1ccfa;
 }
 
-/* .reveal {
+.reveal {
   display: none;
   color: #c1ccfa;
 }
 
 .tweets:hover .reveal {
-  display: block;
-} */
+  display: flex;
+  align-items: center;
+}
 
 .tweets article {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 88vw;
+  width: 98%;
 }
 
 .tweets header div {
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
+  padding: 10px 10px 0 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -44,8 +43,7 @@
 .tweets footer div {
   display: flex;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 20px 0 20px;
   font-size: 15px;
 }
 
