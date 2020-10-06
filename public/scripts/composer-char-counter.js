@@ -3,12 +3,12 @@ $(document).ready(function() {
 
   $("#tweet-text").on("keyup",function(){
     let length = $(this).val().length;
-    let curentLength = maxKeyCount-length;
-    $("#counter").text(curentLength) 
-    if (curentLength < 1) {
-      $("#counter").css("color", "red")
+    let currentLength = maxKeyCount-length;
+    $("#counter").text(currentLength) 
+    if (currentLength < 0) {
+      $("#counter").addClass("red")
     } else {
-      $("#counter").css("color", "#545149")
+      $("#counter").removeClass("red")
     }
   })
 });

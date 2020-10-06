@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
   
 
     <!-- External JS -->
@@ -21,6 +22,9 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/839df972da.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -30,7 +34,7 @@
       <span class="newTweet"><strong>Add</strong> a new tweet</span>
     </nav>
 
-    <header>
+    <header class="mainHeader">
       <br>
       <div class="avatar">
           <img src="/images/profile-hex.png"> 
@@ -43,6 +47,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
@@ -53,6 +58,33 @@
             <output name="counter" id="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+
+      <section class="tweets">
+        <article>
+          <header>
+            <div>
+              <p>
+                <img src="https://i.imgur.com/73hZDYK.png">
+                <span>Newton</span>
+              </p> 
+              <p class="reveal">@SirIsaac</p> 
+            </div>
+          </header>
+          <div class="user-tweet">
+            <p>If I have seen further it is by standing on the shoulders of giants</p>
+          </div>
+          <footer>
+            <div>
+              <p>10 days ago</p>
+              <p>
+                <i class="fas fa-flag"></i> 
+                <i class="fas fa-retweet"></i> 
+                <i class="fas fa-heart"></i>
+              </p>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
