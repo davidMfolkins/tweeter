@@ -5,6 +5,12 @@
  */
 $(document).ready(function() {
 
+  const escape = (str) => {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML
+   }
+
   const createTweetElement = function(tweet) {
     let $tweet = $(`
     <article>
@@ -18,7 +24,7 @@ $(document).ready(function() {
       </div>
     </header>
     <div class="user-tweet">
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
     </div>
     <footer>
       <div>
@@ -59,10 +65,11 @@ $(document).ready(function() {
       let content = $(this).children("textarea").val()
 
       if (content === "") {
-        alert("Please input a tweet")
+        let error = $("#error").append("Please input a tweet")
+        return error.slideDown()
 
       } else if (content.length > 140) {
-        alert("Your tweet is over 140 characters long")
+        $("#error").append("Your tweet is over 140 characters long")
 
       } else {
         $.ajax("/tweets", {method : "POST", data: serialized})
