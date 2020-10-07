@@ -1,27 +1,30 @@
 .tweets {
-  border: 3px solid black;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
-.tweets:hover {
+/* for pictures, use opacity */
+.tweets article:hover {
   box-shadow: 10px 10px #c1ccfa;
 }
 
+.tweets article:hover .icons {
+  opacity: 1;
+}
 .reveal {
   display: none;
   color: #c1ccfa;
 }
 
-.tweets:hover .reveal {
+.tweets article:hover .reveal {
   display: flex;
   align-items: center;
 }
 
 .tweets article {
+  border: 3px solid black;
+  padding: 0 20px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px auto;
   width: 98%;
 }
 
@@ -52,6 +55,10 @@
   padding-bottom: 15px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.icons {
+  opacity: 0.5;
 }
 
 .fa-retweet {
