@@ -5,42 +5,6 @@
  */
 $(document).ready(function() {
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    },
-    {
-      "user": {
-      "name": "Dave",
-      "handle": "@LHdave",
-      "avatars": "https://i.imgur.com/DVpDmdR.png"
-      },
-      "content": {
-      "text": "Man, my app is really coming along"
-      },
-      "created_at": 1602022691551
-      }
-  ]
-
   const createTweetElement = function(tweet) {
     let $tweet = $(`
     <article>
@@ -71,6 +35,7 @@ $(document).ready(function() {
   return $tweet
   } 
 
+
   const renderTweets = function(tweets) {
     for (const item of tweets) {
       const result = createTweetElement(item)
@@ -78,5 +43,36 @@ $(document).ready(function() {
     }
   }
 
-  renderTweets(data)
+  const loadTweets = function() {
+    //$.get("/tweets")
+    $.ajax("/tweets", {method: "GET"})
+    .then((res) => {
+    renderTweets(res)
+    })
+  }
+
+  $(function() {
+    const $form = $("form")
+    $form.on("submit", function (event) {
+      event.preventDefault()
+
+      const serialized = $(this).serialize()
+      let content = $(this).children("textarea").val()
+
+      if (content === "") {
+        alert("Please input a tweet")
+
+      } else if (content.length > 140) {
+        alert("Your tweet is over 140 characters long")
+        
+      } else {
+        $.ajax("/tweets", {method : "POST", data: serialized})
+        .then(res => console.log("success", res))
+        .catch(err => console.log("error", err))
+      }
+    })
+  })
+
+  //relevant comment
+  loadTweets()
 });
