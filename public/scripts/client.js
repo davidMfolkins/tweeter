@@ -39,14 +39,14 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     for (const item of tweets) {
       const result = createTweetElement(item)
-      $(".tweets").append(result)
+      $(".tweets").prepend(result)
     }
   }
 
   const loadTweets = function() {
-    //$.get("/tweets")
     $.ajax("/tweets", {method: "GET"})
     .then((res) => {
+    $(".tweets").empty()
     renderTweets(res)
     })
   }
@@ -55,7 +55,6 @@ $(document).ready(function() {
     const $form = $("form")
     $form.on("submit", function (event) {
       event.preventDefault()
-
       const serialized = $(this).serialize()
       let content = $(this).children("textarea").val()
 
@@ -64,10 +63,14 @@ $(document).ready(function() {
 
       } else if (content.length > 140) {
         alert("Your tweet is over 140 characters long")
-        
+
       } else {
         $.ajax("/tweets", {method : "POST", data: serialized})
-        .then(res => console.log("success", res))
+        .then(function() {
+          $("#counter").text("140") 
+          $("#form")[0].reset()
+          loadTweets()
+        })
         .catch(err => console.log("error", err))
       }
     })
