@@ -33,6 +33,9 @@
   color: red;
 }
 
-#error {
+#error.warning {
+  display: flex;
+  justify-content: center;
   color: red;
+  border: 3px solid red;
 }

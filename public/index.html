@@ -19,9 +19,11 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts/composer-char-counter.js"></script>
+    <script src="/scripts/helpers.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/839df972da.js" crossorigin="anonymous"></script>
@@ -31,7 +33,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-      <span class="newTweet"><strong>Add</strong> a new tweet</span>
+      <span class="new-tweet">Add a new tweet</span>
     </nav>
 
     <header class="mainHeader">
@@ -41,7 +43,7 @@
       </div>
       <br>
       <div class="userName">
-          <h2>Amy Mansell</h2>
+          <h2>David Folkins</h2>
       </div>
   </header>
 
@@ -50,6 +52,7 @@
 
       <section class="new-tweet">
         <h2 id="error"></h2>
+
         <form action="/tweets" method="POST" id="form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
