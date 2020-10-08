@@ -1,12 +1,13 @@
-  // Helps escape possible XSS attepmts
-  const escape = (str) => {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML
-   }
+// Helps escape possible XSS attepmts
+const escape = (str) => {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
-   const createTweetElement = function(tweet) {
-    let $tweet = $(`
+//Creates tweets out of objects and displays them as HTML
+const createTweetElement = function(tweet) {
+  let $tweet = $(`
     <article>
     <header>
       <div>
@@ -31,27 +32,46 @@
       </div>
     </footer>
   </article>
-  `)
-  return $tweet
-  } 
+  `);
+  return $tweet;
+};
 
-  const renderTweets = function(tweets) {
-    for (const item of tweets) {
-      const result = createTweetElement(item)
-      $(".tweets").prepend(result)
-    }
+//Takes the HTML from createTweetElement function and prepends them to the list of tweets
+const renderTweets = function(tweets) {
+  for (const item of tweets) {
+    const result = createTweetElement(item);
+    $(".tweets").prepend(result);
   }
+};
 
-  const loadTweets = function() {
-    $.ajax("/tweets", {method: "GET"})
+// Gets the list of tweets and renders them on the page
+const loadTweets = function() {
+  $.ajax("/tweets", {method: "GET"})
     .then((res) => {
-    $(".tweets").empty()
-    renderTweets(res)
-    })
-  }
+      $(".tweets").empty();
+      renderTweets(res);
+    });
+};
 
-  const showError = function(message) {
-    $("#error").empty()
-    $("#error").addClass("warning")
-    $("#error").append(message).hide().slideDown(500)
-  }
+//Helper function just to contain repetition of errors
+const showError = function(message) {
+  $("#error").empty();
+  $("#error").addClass("warning");
+  $("#error").append(message).hide().slideDown(500);
+};
+
+//Button that appears after scrolling, and brings user back to the top of the page when clicked
+const scrollButton = function() {
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 200) {
+      $("#button").addClass("display");
+    } else {
+      $("#button").removeClass("display");
+    }
+  });
+    
+  $("#button").on('click', function() {
+    $("html, body").animate({scrollTop:0}, "400");
+    $(console.log("Hello"));
+  });
+};

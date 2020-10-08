@@ -1,4 +1,4 @@
-.mainHeader {
+.main-header {
   margin-top: 120px;
   height: 400px;
   background-color: #ee9529ea;
@@ -11,8 +11,13 @@
   justify-content: center;
 }
 
-.userName {
+.user-name {
   display: flex;
   justify-content: center;
   color: #ffffff;
+}
+
+#compose-tweet {
+  color: #ffffff;
+  text-decoration: none;
 }

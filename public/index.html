@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/button.css" type="text/css" />
   
 
     <!-- External JS -->
@@ -30,26 +31,26 @@
   </head>
 
   <body>
+    <a id="button"><i class="fas fa-hand-point-up"></i></a>
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-      <span class="new-tweet">Add a new tweet</span>
+      <a id="compose-tweet" href="#scrollto">Add a new tweet</a> 
     </nav>
 
-    <header class="mainHeader">
+    <header class="main-header">
       <br>
       <div class="avatar">
-          <img src="/images/profile-hex.png"> 
+          <img src="/images/pumpkin.png"> 
       </div>
       <br>
-      <div class="userName">
+      <div id="scrollto" class="user-name">
           <h2>David Folkins</h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
       <section class="new-tweet">
         <h2 id="error"></h2>
 
