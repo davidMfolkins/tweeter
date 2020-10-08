@@ -21,7 +21,6 @@
   }
 
   #compose-tweet {
-    cursor: default;
-    pointer-events: none;
+    display: none;
   }
 }
