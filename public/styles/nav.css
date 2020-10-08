@@ -1,18 +1,35 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color:#5522b3;
+  background-color: #f4f1ec;
   padding: 1.5em;
-  color: #FFFFFF;
+  color: #ee9529ea;
   display: flex;
   justify-content: space-between;
   position: fixed;
   top: 0;
 }
+nav > * {
+  position: relative;
+  z-index: 999;
+}
+
+.secret {
+  height: 100%;
+  width: 100%;
+  background-color: #ee9529ea;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 900;
+}
 
 .logo {
   font-family: 'Bungee', cursive, sans-serif;
   font-size: 30px;
+  color: #FFFFFF;
+  margin-right: 30px;
 }
 
 #compose-tweet {

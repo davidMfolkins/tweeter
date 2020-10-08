@@ -1,0 +1,27 @@
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .secret {
+    background-color:#5522b3;
+    background-image: none;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 150px 30px 30px 10px
+  }
+  
+  .main-header {
+    height: 50%;
+    width: 50%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 4%;
+  }
+
+  #compose-tweet {
+    cursor: default;
+    pointer-events: none;
+  }
+}

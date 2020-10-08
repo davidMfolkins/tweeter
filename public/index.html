@@ -15,30 +15,41 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
     <link rel="stylesheet" href="/styles/button.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/desktop-styles.css" type="text/css" />
   
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="scripts/composer-char-counter.js"></script>
-    <script src="/scripts/helpers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+
+    
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script src="scripts/composer-char-counter.js"></script>
+    <script src="/scripts/helpers.js"></script>
     
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/839df972da.js" crossorigin="anonymous"></script>
+
+    <!-- viewport setting -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   </head>
 
   <body>
     <a id="button"><i class="fas fa-hand-point-up"></i></a>
     <!-- Top nav bar (fixed) -->
     <nav>
+      <div class="secret"></div>
       <span class="logo">tweeter</span>
-      <a id="compose-tweet" href="#scrollto">Add a new tweet</a> 
+      <span>
+        <a id="compose-tweet" href="#scrollto"><i class="fas fa-chevron-down"></i> Write a new tweet</a>
+      </span>
     </nav>
 
-    <header class="main-header">
+  <div class="content">
+  <header class="main-header">
       <br>
       <div class="avatar">
           <img src="/images/pumpkin.png"> 
@@ -67,5 +78,6 @@
       <section class="tweets">
       </section>
     </main>
+    </div>
   </body>
 </html>

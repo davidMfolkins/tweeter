@@ -23,7 +23,7 @@ const createTweetElement = function(tweet) {
     </div>
     <footer>
       <div>
-        <p>${new Date(tweet.created_at).toLocaleString()}</p>
+        <p>${moment(tweet.created_at).fromNow()}</p>
         <p class="icons">
           <i class="fas fa-flag"></i> 
           <i class="fas fa-retweet"></i> 
@@ -55,9 +55,14 @@ const loadTweets = function() {
 
 //Helper function just to contain repetition of errors
 const showError = function(message) {
-  $("#error").empty();
-  $("#error").addClass("warning");
-  $("#error").append(message).hide().slideDown(500);
+  if (!$("#error").hasClass("warning")) {
+    $("#error").empty();
+    $("#error").addClass("warning");
+    $("#error").append(message).hide().slideDown(500);
+  } else {
+    $("#error").empty();
+    $("#error").append(message)
+  }
 };
 
 //Button that appears after scrolling, and brings user back to the top of the page when clicked
@@ -72,6 +77,5 @@ const scrollButton = function() {
     
   $("#button").on('click', function() {
     $("html, body").animate({scrollTop:0}, "400");
-    $(console.log("Hello"));
   });
 };
